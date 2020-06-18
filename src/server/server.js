@@ -2,7 +2,9 @@ import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import App from '../components/App'
+import getApi from './api'
 
+const PORT = 4242
 const server = express()
 server.use(express.static('public'))
 
@@ -22,4 +24,6 @@ server.get('^/$', (req, res) => {
   `)
 })
 
-server.listen(4242, () => console.log('Server is running...'))
+server.use('/api', getApi())
+
+server.listen(PORT, () => console.log(`Server listening on port: ${PORT}`))
