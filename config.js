@@ -1,5 +1,7 @@
-const env = process.env
+const { ENVIROMENT, URL, PORT } = process.env
 
 export default {
-  port: env.PORT || 8080
+  environment: ENVIROMENT || 'dev',
+  url: URL || 'localhost',
+  port: PORT || 8080
 }

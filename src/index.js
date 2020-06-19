@@ -1,6 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
-import App from './components/App'
+import App from './client/App'
 import './index.scss'
 
 hydrate(
