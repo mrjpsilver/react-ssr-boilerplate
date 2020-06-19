@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { array } from 'prop-types'
 import Header from '../components/Header/Header'
-import data from '../data/testData.js'
+import { truncateText } from '../utils'
 import './App.scss'
 
-export default function App () {
-  const [count, setCount] = useState(0)
+export default function App ({ initialData }) {
+  const [posts, setPosts] = useState(initialData)
 
   return (
     <div className="container">
       <Header />
-      {data.posts.length > 0 &&
+      {posts.length > 0 &&
         <ul>
-          {data.posts.map(post =>
-            <li key={post.id}>{ post.title }</li>
+          {posts.map(post =>
+            <li key={post.id}>
+              <h2>{ post.title }</h2>
+              By <em>{ post.author }</em>
+              <p>{ truncateText(post.body, 300) }</p>
+            </li>
           )}
         </ul>
       }
-      <button onClick={() => setCount(count + 1)}>{count}</button>
     </div>
   )
+}
+
+App.propTypes= {
+  initialData: array.isRequired
 }

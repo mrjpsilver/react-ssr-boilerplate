@@ -3,6 +3,12 @@
   border: 1px solid #c2c2c2;
 
   ul {
-    margin-left: 2em;
+    margin: 0 2em 2em 2em;
+    li {
+      margin-bottom: 2em;
+      h2 {
+        margin-bottom: 0.6rem;
+      }
+    }
   }
 }
